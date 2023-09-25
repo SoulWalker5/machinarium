@@ -14,7 +14,7 @@
     ```
 3. Connect to app container
     ```bash
-    docker-compose exec app sh
+    docker-compose exec -u www app sh
     ```
 4. Install laravel dependencies:
    ```bash
@@ -30,5 +30,8 @@
    ```  
 7. To quit from container:
    ```bash
-   exit
+   exit 
+8. Restart containers to apply key:
+   ```bash
+   docker-compse down && docker-compose up -d
    ```
