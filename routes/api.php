@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('worker', WorkerController::class)->only(['index']);
+Route::resource('worker', WorkerController::class)->only(['index', 'show']);
 Route::prefix('worker/{worker}/machine')->as('worker.machine.')->group(function () {
     Route::post('attach', [MachineWorkerController::class, 'attach'])->name('attach');
     Route::post('detach', [MachineWorkerController::class, 'detach'])->name('detach');

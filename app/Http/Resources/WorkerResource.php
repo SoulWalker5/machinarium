@@ -20,6 +20,7 @@ class WorkerResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'machines' => MachineResource::collection($this->whenLoaded('machines')),
         ];
     }
 }
