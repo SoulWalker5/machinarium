@@ -20,6 +20,7 @@ class MachineResource extends JsonResource
         return [
             'id' => $this->id,
             'number' => $this->number,
+            'worker' => new WorkerResource($this->whenLoaded('worker'))
         ];
     }
 }

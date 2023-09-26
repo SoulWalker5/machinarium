@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MachineController;
 use App\Http\Controllers\Api\MachineWorkerController;
 use App\Http\Controllers\Api\WorkerController;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,4 @@ Route::prefix('worker/{worker}/machine')->as('worker.machine.')->group(function 
     Route::post('detach', [MachineWorkerController::class, 'detach'])->name('detach');
 });
 
-Route::resource('machine', WorkerController::class)->only(['index']);
+Route::resource('machine', MachineController::class)->only(['index', 'show']);
