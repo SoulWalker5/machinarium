@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\MachineWorkerController;
 use App\Http\Controllers\Api\WorkerController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('worker', WorkerController::class)->only(['index']);
+Route::prefix('worker/{worker}/machine')->as('worker.machine.')->group(function () {
+    Route::post('attach', [MachineWorkerController::class, 'attach'])->name('attach');
+    Route::post('detach', [MachineWorkerController::class, 'detach'])->name('detach');
+});
+
 Route::resource('machine', WorkerController::class)->only(['index']);
