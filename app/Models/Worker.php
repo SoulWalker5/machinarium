@@ -17,7 +17,7 @@ class Worker extends Model
 
     protected $fillable = ['name'];
 
-    public function machine(): BelongsToMany
+    public function machines(): BelongsToMany
     {
         return $this->belongsToMany(Machine::class, MachineWorker::class);
     }

@@ -15,7 +15,7 @@ class MachineWorkerController extends Controller
     public function attach(AttachMachineToWorkerRequest $request, Worker $worker): JsonResponse
     {
         try {
-            $worker->machine()->attach(['machine_id' => $request->validated('machineId')]);
+            $worker->machines()->attach(['machine_id' => $request->validated('machineId')]);
         } catch (Throwable $e) {
             Log::error(self::class . ' ' . __FUNCTION__ . ' ' . $e->getMessage());
 
@@ -28,7 +28,7 @@ class MachineWorkerController extends Controller
     public function detach(DetachMachineFromWorkerRequest $request, Worker $worker): JsonResponse
     {
         try {
-            $worker->machine()->detach(['machine_id' => $request->validated('machineId')]);
+            $worker->machines()->detach(['machine_id' => $request->validated('machineId')]);
         } catch (Throwable $e) {
             Log::error(self::class . ' ' . __FUNCTION__ . ' ' . $e->getMessage());
 
