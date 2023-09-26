@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('worker', WorkerController::class)->only(['index']);
+Route::resource('machine', WorkerController::class)->only(['index']);
