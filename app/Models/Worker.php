@@ -26,4 +26,9 @@ class Worker extends Model
     {
         return $this->hasMany(MachineWorker::class);
     }
+
+    public function history(): HasMany
+    {
+        return $this->hasMany(MachineWorkerHistory::class);
+    }
 }

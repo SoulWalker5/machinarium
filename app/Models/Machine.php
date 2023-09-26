@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
@@ -31,5 +32,10 @@ class Machine extends Model
             'id',
             secondLocalKey: 'worker_id'
         );
+    }
+
+    public function history(): HasMany
+    {
+        return $this->hasMany(MachineWorkerHistory::class);
     }
 }
